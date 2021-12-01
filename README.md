@@ -1,7 +1,7 @@
-# worktimebot
 Work time bot
+-------------
 
-A simple bot for Telegram that allows its users to clock in, clock out and review their time balance.
+A simple bot for Telegram written in Java, that allows its users to clock in, clock out and review their time balance.
 
 The bot features
 - translations (English, Russian, German)
