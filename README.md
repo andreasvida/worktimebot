@@ -4,20 +4,23 @@ Work time bot
 A simple bot for Telegram written in Java, that allows its users to clock in, clock out and review their time balance.
 
 The bot features
+- calculation of time balance
 - translations (English, Russian, German)
-- configureable working hours per week day
-- definition of holidays
+- easy to use interface (inline buttons for clock in / clock out)
+- configurable working hours per week day
+- definition of arbitrary holidays
 - file export
 - arbitrary comments with time stamp e.g. current work items tickets / diary functionality
-- simple persistence
-- calculation of current time balance including clock in without clock out.
+- simple server side persistence
+- on demand deletion of user data
+
 
 Try it out
 ----------
 
-An up-to-date installation is running here: [Link needs a telegram client](http://t.me/worktimerecorderbot)
+An up-to-date installation is running here: [Open link with telegram client](http://t.me/worktimerecorderbot)
 
-Some screenshots
+Some screenshots of the welcome screen, language selection and example actions:
 
 ![Screenshot 1](docs/1.jpg?raw=true "Screen 1")
 
