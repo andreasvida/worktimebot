@@ -15,7 +15,7 @@ The bot features
 Try it out
 ----------
 
-An up-to-date installation is running at [worktimerecorderbot](http://t.me/worktimerecorderbot)
+An up-to-date installation is running here: [Link needs a telegram client](http://t.me/worktimerecorderbot)
 
 
 Building and using your own bot
