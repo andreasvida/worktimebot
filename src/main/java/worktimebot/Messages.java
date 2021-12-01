@@ -13,8 +13,12 @@ public class Messages {
 	}
 
 	public static String getString(Locale locale, String key) {
-		try {								
-			return RESOURCE_BUNDLE.getString(key + "_" + locale.getLanguage());
+		try {
+			String suffix = "_" + locale.getLanguage();
+			if("en".equals(locale.getLanguage())) {
+				suffix = "";
+			}					
+			return RESOURCE_BUNDLE.getString(key + suffix);
 		} catch (MissingResourceException e) {
 			return '!' + key + '!';
 		}
