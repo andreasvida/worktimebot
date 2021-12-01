@@ -17,6 +17,12 @@ Try it out
 
 An up-to-date installation is running here: [Link needs a telegram client](http://t.me/worktimerecorderbot)
 
+Some screenshots
+
+![Screenshot 1](docs/1.jpg?raw=true "Screen 1")
+
+![Screenshot 2](docs/2.jpg?raw=true "Screen 2")
+
 
 Building and using your own bot
 -------------------------------
