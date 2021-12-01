@@ -11,7 +11,3 @@ The bot features
 - arbitrary comments with time stamp e.g. current work items tickets / diary functionality
 - simple persistence
 - calculation of current time balance including clock in without clock out.
-
-
-Planned features (yet to be implemented): 
-- configurable user time zone 
