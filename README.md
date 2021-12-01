@@ -12,9 +12,14 @@ The bot features
 - simple persistence
 - calculation of current time balance including clock in without clock out.
 
+Try it out
+----------
 
-Usage
------
+An up-to-date installation is running at [worktimerecorderbot](http://t.me/worktimerecorderbot)
+
+
+Building and using your own bot
+-------------------------------
 
 Prerequisites
 
