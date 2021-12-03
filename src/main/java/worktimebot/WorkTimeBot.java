@@ -264,9 +264,12 @@ public class WorkTimeBot extends TelegramBot {
 				
 				StringBuilder offDays = new StringBuilder();				
 				boolean first = true; 				
-				for(LocalDate d: off) { 
-					if(!first) {  offDays.append("; "); first = false; }					
-					offDays.append(d.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(locale)));					
+				for (LocalDate d : off) {
+					if (!first) {
+						offDays.append("; ");
+					}
+					first = false;
+					offDays.append(d.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(locale)));
 				}
 				if(off.isEmpty()) offDays.append("-");
 								
