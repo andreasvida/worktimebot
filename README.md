@@ -10,7 +10,7 @@ The bot features
 - configurable working hours per week day
 - definition of arbitrary holidays
 - file export
-- arbitrary comments with time stamp e.g. current work items tickets / diary functionality
+- arbitrary comments along a time stamp e.g. current work item / ticket number / diary entry / etc.
 - simple server side persistence
 - on demand deletion of user data
 
@@ -20,7 +20,7 @@ Try it out
 
 An up-to-date installation is running here: [Open link with telegram client](http://t.me/worktimerecorderbot)
 
-Some screenshots of the welcome screen, language selection and example actions:
+Some outdated screenshots of the welcome screen, language selection and example actions:
 
 ![Screenshot 1](docs/1.jpg?raw=true "Screen 1")
 
