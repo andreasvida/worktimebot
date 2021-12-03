@@ -121,8 +121,9 @@ public class WorkTimeBot extends TelegramBot {
 			case "/jp": //$NON-NLS-1$
 				if (query.message() != null) {
 					Long chatId = query.message().chat().id();
-					TimeClock clock = getClockViaUser(query.from().id());
-					UserSettings settings = getUserSettings(query.from().id());
+					TimeClock clock = getClockViaUser(query.from().id());																				
+					UserSettings settings = getUserSettings(query.from().id());					
+					clock.setHours(settings.getHours());					
 					String response = handleCommand(query.data(), clock, chatId, settings);
 					
 					execute(new EditMessageText(chatId, query.message().messageId(), response).replyMarkup(new InlineKeyboardMarkup(
