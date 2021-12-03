@@ -40,7 +40,7 @@ You need a Telegram Client + Java and Maven to compile and run the bot:
    mvn clean install
 ```
 3) Search for "BotFather" in Telegram, tell it to create a new bot and remember its BOT-TOKEN for Telegram API calls
-4) 
+4) Start the program:
 ```
 java -jar timerclockbot-1.0.0.jar BOT-TOKEN
 ```
