@@ -91,12 +91,14 @@ public class TimeClockImpl implements TimeClock, Serializable {
 	}
 
 	@Override
-	public Duration getBalance(Instant now) {		
-		if(isClockedIn()) { 
+	public Duration getBalance(Instant when) {		
+		if(isClockedIn()) {
+			
+			//simulate clock out and c
 			TimeClockImpl impl = new TimeClockImpl();
 			impl.map.putAll(map);
-			impl.map.put(now, new ClockEntry(false));
-			return impl.getBalance(now);
+			impl.map.put(when, new ClockEntry(false));
+			return impl.getBalance(when);
 		}
 		
 		Duration total = getWorkedTime();
@@ -114,13 +116,12 @@ public class TimeClockImpl implements TimeClock, Serializable {
 		Duration needed = Duration.of(0, ChronoUnit.SECONDS);
 		
 		LocalDate startLocalDay = startDay.atZone(zoneid).toLocalDate();
-		LocalDate endLocalDay = LocalDate.now();
+		LocalDate endLocalDay = when.atZone(zoneid).toLocalDate();
 		
 		while (!startLocalDay.isAfter(endLocalDay)) {			
 			needed = needed.plus(needed(startLocalDay));
 			startLocalDay = startLocalDay.plusDays(1);
 		}
-				
 		return total.minus(needed);		
 	}
 
@@ -133,18 +134,7 @@ public class TimeClockImpl implements TimeClock, Serializable {
 			return hours[d.getDayOfWeek().getValue()-1];
 		} else { 
 			return Duration.ZERO;
-		}
-
-		// default
-//	    switch (d.getDayOfWeek()) {
-//			case SATURDAY:
-//			case SUNDAY:
-//				return Duration.ZERO;
-//			case FRIDAY:
-//				return Duration.ofMinutes(5 * 60 + 30);
-//			default:
-//				return Duration.ofMinutes(8 * 60 + 45);
-//		}
+		}	
 	}
 
 	@Override
@@ -200,7 +190,7 @@ public class TimeClockImpl implements TimeClock, Serializable {
 	
 	@Override
 	public Set<LocalDate> getOffDays() { 
-		return offDays == null ? new HashSet<>() : offDays; 
+		return offDays == null ? offDays = new HashSet<>() : offDays; 
 	}
 
 	@Override
@@ -209,8 +199,8 @@ public class TimeClockImpl implements TimeClock, Serializable {
 	}
 
 	@Override
-	public void setHours(Duration[] week) {
-		if(week != null && week.length == 7) { 
+	public void setHours(Duration[] hours) {
+		if(hours != null && hours.length == 7) { 
 			this.hours = hours;
 		}		
 	}
