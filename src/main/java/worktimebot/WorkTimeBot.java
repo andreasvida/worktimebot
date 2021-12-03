@@ -118,6 +118,7 @@ public class WorkTimeBot extends TelegramBot {
 			case "/de": //$NON-NLS-1$
 			case "/en": //$NON-NLS-1$
 			case "/ru": //$NON-NLS-1$
+			case "/jp": //$NON-NLS-1$
 				if (query.message() != null) {
 					Long chatId = query.message().chat().id();
 					TimeClock clock = getClockViaUser(query.from().id());
@@ -165,6 +166,7 @@ public class WorkTimeBot extends TelegramBot {
 		case "/de": //$NON-NLS-1$			
 		case "/en": //$NON-NLS-1$
 		case "/ru": //$NON-NLS-1$
+		case "/jp": //$NON-NLS-1$
 			locale = new Locale(command.substring(1), "");
 			settings.setLocale(locale);
 			persist();
@@ -193,13 +195,15 @@ public class WorkTimeBot extends TelegramBot {
 		case "/start": //$NON-NLS-1$
 			SendMessage msg = new SendMessage(chatId, "Welcome to time clock bot. Please select your language: \n\n"  //$NON-NLS-1$
 					 +Messages.getString(new Locale("ru"), "WorkTimeBot.31") + "\n\n"  //$NON-NLS-1$
-					 +Messages.getString(Locale.GERMAN, "WorkTimeBot.31")  //$NON-NLS-1$				
+					 +Messages.getString(Locale.GERMAN, "WorkTimeBot.31") + "\n\n" //$NON-NLS-1$
+					 +Messages.getString(new Locale("jp"), "WorkTimeBot.31")   //$NON-NLS-1$
 					);									
 			msg.replyMarkup(
 					new InlineKeyboardMarkup(
 							new InlineKeyboardButton("Deutsch").callbackData("/de") //$NON-NLS-1$ //$NON-NLS-2$
 					       ,new InlineKeyboardButton("English").callbackData("/en") //$NON-NLS-1$ //$NON-NLS-2$
 					       ,new InlineKeyboardButton("\u0440\u0443\u0441\u0441\u043A\u0438\u0439").callbackData("/ru") //$NON-NLS-1$ //$NON-NLS-2$
+					       ,new InlineKeyboardButton("\u65e5\u672c").callbackData("/jp") //$NON-NLS-1$ //$NON-NLS-2$
 					));		
 			execute(msg);			
 			break; 
