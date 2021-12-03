@@ -200,10 +200,10 @@ public class WorkTimeBot extends TelegramBot {
 					);									
 			msg.replyMarkup(
 					new InlineKeyboardMarkup(
-							new InlineKeyboardButton("Deutsch").callbackData("/de") //$NON-NLS-1$ //$NON-NLS-2$
-					       ,new InlineKeyboardButton("English").callbackData("/en") //$NON-NLS-1$ //$NON-NLS-2$
-					       ,new InlineKeyboardButton("\u0440\u0443\u0441\u0441\u043A\u0438\u0439").callbackData("/ru") //$NON-NLS-1$ //$NON-NLS-2$
-					       ,new InlineKeyboardButton("\u65e5\u672c").callbackData("/jp") //$NON-NLS-1$ //$NON-NLS-2$
+							 new InlineKeyboardButton("English").callbackData("/en") //$NON-NLS-1$ //$NON-NLS-2$
+							,new InlineKeyboardButton("\u0440\u0443\u0441\u0441\u043A\u0438\u0439").callbackData("/ru") //$NON-NLS-1$ //$NON-NLS-2$
+							,new InlineKeyboardButton("Deutsch").callbackData("/de") //$NON-NLS-1$ //$NON-NLS-2$
+					        ,new InlineKeyboardButton("\u65e5\u672c").callbackData("/jp") //$NON-NLS-1$ //$NON-NLS-2$
 					));		
 			execute(msg);			
 			break; 
