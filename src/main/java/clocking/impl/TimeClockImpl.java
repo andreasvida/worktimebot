@@ -92,36 +92,32 @@ public class TimeClockImpl implements TimeClock, Serializable {
 
 	@Override
 	public Duration getBalance(Instant when) {		
-		if(isClockedIn()) {
-			
-			//simulate clock out and c
+		//if still clocked in: simulate clock out and calculate balance from cloned object.
+		if(isClockedIn()) {			
 			TimeClockImpl impl = new TimeClockImpl();
 			impl.map.putAll(map);
 			impl.map.put(when, new ClockEntry(false));
 			return impl.getBalance(when);
 		}
-		
+		// worked
 		Duration total = getWorkedTime();
-		
+		// needed
 		Instant startDay = null;		
 		for(Entry<Instant, ClockEntry> entry: map.entrySet()) {
 			if(entry.getValue().isClockIn()) { 
 				startDay = entry.getKey(); 
 				break;
 			}
-		}
-		
-		if (startDay == null) return Duration.ZERO;
-		
-		Duration needed = Duration.of(0, ChronoUnit.SECONDS);
-		
+		}		
+		if (startDay == null) return Duration.ZERO;		
+		Duration needed = Duration.of(0, ChronoUnit.SECONDS);		
 		LocalDate startLocalDay = startDay.atZone(zoneid).toLocalDate();
-		LocalDate endLocalDay = when.atZone(zoneid).toLocalDate();
-		
+		LocalDate endLocalDay = when.atZone(zoneid).toLocalDate();		
 		while (!startLocalDay.isAfter(endLocalDay)) {			
 			needed = needed.plus(needed(startLocalDay));
 			startLocalDay = startLocalDay.plusDays(1);
 		}
+		// result = worked - needed
 		return total.minus(needed);		
 	}
 

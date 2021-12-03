@@ -260,8 +260,17 @@ public class WorkTimeBot extends TelegramBot {
 				} else {
 					off.add(day);
 				}
-				clock.setOffDays(off);				
-				messageText = Messages.getString(locale, "WorkTimeBot.47") + off.toString(); //$NON-NLS-1$
+				clock.setOffDays(off);
+				
+				StringBuilder offDays = new StringBuilder();				
+				boolean first = true; 				
+				for(LocalDate d: off) { 
+					if(!first) {  offDays.append("; "); first = false; }					
+					offDays.append(d.format(DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(locale)));					
+				}
+				if(off.isEmpty()) offDays.append("-");
+								
+				messageText = Messages.getString(locale, "WorkTimeBot.47") + offDays.toString(); //$NON-NLS-1$
 			} catch (DateTimeParseException p) {
 				messageText = Messages.getString(locale, "WorkTimeBot.48") + p.getParsedString() + "]" //$NON-NLS-1$ //$NON-NLS-2$
 						+ Messages.getString(locale, "WorkTimeBot.50"); //$NON-NLS-1$
